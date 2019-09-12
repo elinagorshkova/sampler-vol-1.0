@@ -19,7 +19,6 @@ const addHandlers = () => {
 
 const onCreateCollection = function (event) {
   event.preventDefault()
-  console.log('token is' + store.user.token)
   const data = getFormFields(event.target)
   let sounds = []
   for (let i = 0; i < 16; i++) {
@@ -61,7 +60,6 @@ const onUpdateCollection = function (event) {
   for (let i = 0; i < 16; i++) {
     sounds.push(data[i])
   }
-  console.log('sounds are: ' + sounds)
   sounds = ',' + sounds.toString() + ','
   data.collection.sounds = sounds
   api.updateCollection(data)
@@ -70,15 +68,13 @@ const onUpdateCollection = function (event) {
 }
 
 const playSound = function (event) {
+  if (store.padIsReady === true) {
   const key = event.which
   const sound = new Audio()
-  console.log(store.pad)
-  console.log(key)
   const index = myPadKeys.indexOf(key)
-  console.log('index is :' + index)
-  $('#' + key).css('background-color', 'red')
   sound.src = store.pad[index]
   sound.play()
+} else return
 }
 
 const onShowAllCollections = function () {
