@@ -12,73 +12,74 @@
 
       <!-- Bootstrap style imported -->
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 
     <body>
       <!--Sign In/Sign Up form to disappear after successful login -->
-    <div id="when-not-signed-in">
-      <div class="wrapper fadeInDown">
-        <div class="formContent">
-          <!-- Sign Up Form -->
-          <form id='sign-up'>
-            <fieldset>
-              <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
-              <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
-              <input type="text" class="fadeIn third" name="credentials[password_confirmation]" placeholder="confirm password">
-              <input type="submit" class="fadeIn fourth" value="Sign Up">
-            </fieldset>
-          </form>
-          <!-- Sign In Form -->
-          <div id="formFooter">
+      <div id="when-not-signed-in">
+        <div class="wrapper fadeInDown">
+          <div class="formContent">
+            <!-- Sign Up Form -->
+            <form id='sign-up'>
+              <fieldset>
+                <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
+                <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
+                <input type="text" class="fadeIn third" name="credentials[password_confirmation]" placeholder="confirm password">
+                <input type="submit" class="fadeIn fourth" value="Sign Up">
+              </fieldset>
+            </form>
+            <!-- Sign Up Form -->
             <a class="underlineHover">Already a user? Sign In</a>
+            <!-- Sign In Form -->
+            <form id='sign-in'>
+              <fieldset>
+                <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
+                <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
+                <input type="submit" class="fadeIn third" value="Sign In">
+              </fieldset>
+            </form>
+            <!-- Sign In Form -->
           </div>
-          <form id='sign-in'>
-            <fieldset>
-              <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
-              <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
-              <input type="submit" class="fadeIn third" value="Sign In">
-            </fieldset>
-          </form>
         </div>
       </div>
-    </div>
+      <!--Sign In/Sign Up form to disappear after successful login -->
 
 <!-- Content below shows up after signing in -->
   <div class="when-signed-in">
 <!--Navbar -->
 <nav class="navbar">
- <a>Welcome</a>
- <button class="navbar-toggler underlineHover" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
- <div class="collapse navbar-collapse" id="navbarNav">
-   <ul class="navbar-nav">
-     <li>
-       <button class="button underlineHover" data-toggle="modal" data-target=".bd-example-modal-sm">Change Password</button>
-     </li>
-     <li>
-       <button class='button' id="sign-out">Sign Out</button>
-     </li>
-     <li>
-       <button type="button" class="button" data-toggle="modal" data-target="#create-collection">Create collection</button>
-     </li>
-     <li>
-         <button type="button" class="button" data-toggle="modal" data-target="#browse-collection" id='get_all_collections'>Explore collections</button>
-     </li>
-   </ul>
- </div>
+  <h1>Sampler vol-1.0</h1>
+  <button class="navbar-toggler underlineHover" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="row">
+      <ul class="navbar-nav">
+        <li>
+          <button type="button" class="button" data-toggle="modal" data-target="#create">Create a collection</button>
+        </li>
+        <li>
+          <button type="button" class="button" data-toggle="modal" data-target="#browse-collection" id='get_all_collections'>Explore collections</button>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li>
+          <button class="button underlineHover" data-toggle="modal" data-target=".change-pwd">Change Password</button>
+        </li>
+        <li>
+          <button class='button' id="sign-out">Sign Out</button>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
+<!--Navbar -->
 
-
-<!-- Change Password and Sign Out -->
-<div id="auth-when-signed-in">
-  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="SigneInModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div>
-        <a class="underlineHover">Change password</a>
-      </div>
-      <div class="wrapper fadeInDown">
-        <div class="formContent">
+<!-- Modal Change Password-->
+<div class="wrapper">
+  <div class="formContent">
+    <div class="change-pwd modal fade under" tabindex="1" role="dialog" aria-labelledby="CreateModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
           <form id='change-password'>
             <fieldset>
               <input type="text" name="passwords[old]" placeholder="Current password">
@@ -91,97 +92,105 @@
     </div>
   </div>
 </div>
+<!-- Modal Change Password-->
 
 <!-- Modal Create-->
-<div class="modal fade under" id="create-collection" tabindex="-1" role="dialog" aria-labelledby="createCollectionModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <h3>Create a new collection</h3>
-      <form id='create-collection' class='border'>
-        <fieldset>
-          <div class='row'>
-            <input type="text" class='col-6' name="collection[name]" placeholder="Name">
-            <input type="text" class='col-6' name="collection[author]" placeholder="Author">
-          </div>
-          <div class='row'>
-            <input class="0" type="text" class='col-3' name="0" placeholder="sound 1">
-            <input class="1" type="text" class='col-3' name="1" placeholder="sound 2">
-            <input class="2" type="text" class='col-3' name="2" placeholder="sound 3">
-            <input class="3" type="text" class='col-3' name="3" placeholder="sound 4">
-          </div>
-          <div class='row'>
-            <input class="4" type="text" class='col-3' name="4" placeholder="sound 5">
-            <input class="5" type="text" class='col-3' name="5" placeholder="sound 6">
-            <input class="6" type="text" class='col-3' name="6" placeholder="sound 7">
-            <input class="7" type="text" class='col-3' name="7" placeholder="sound 8">
-          </div>
-          <div class='row'>
-            <input class="8" type="text" class='col-3' name="8" placeholder="sound 9">
-            <input class="9" type="text" class='col-3' name="9" placeholder="sound 10">
-            <input class="10" type="text" class='col-3' name="10" placeholder="sound 11">
-            <input class="11" type="text" class='col-3' name="11" placeholder="sound 12">
-          </div>
-          <div class='row'>
-            <input class="12" type="text" class='col-3' name="12" placeholder="sound 13">
-            <input class="13" type="text" class='col-3' name="13" placeholder="sound 14">
-            <input class="14" type="text" class='col-3' name="14" placeholder="sound 15">
-            <input class="15" type="text" class='col-3' name="15" placeholder="sound 16">
-          </div>
-          <div class='row'>
-            <input type="submit" class='button col-12' value="CREATE!">
-          </div>
-        </fieldset>
-      </form>
+<div class="wrapper">
+  <div class="modal fade under" id="create" tabindex="2" role="dialog" aria-labelledby="createCollectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <h3>Create a new collection</h3>
+        <form id='create-collection'>
+          <fieldset>
+            <div class='row'>
+              <input type="text" class='col' name="collection[name]" placeholder="Name">
+              <input type="text" class='col' name="collection[author]" placeholder="Author">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="0" placeholder="sound 1">
+              <input type="text" class='col' name="1" placeholder="sound 2">
+              <input type="text" class='col' name="2" placeholder="sound 3">
+              <input type="text" class='col' name="3" placeholder="sound 4">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="4" placeholder="sound 5">
+              <input type="text" class='col' name="5" placeholder="sound 6">
+              <input type="text" class='col' name="6" placeholder="sound 7">
+              <input type="text" class='col' name="7" placeholder="sound 8">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="8" placeholder="sound 9">
+              <input type="text" class='col' name="9" placeholder="sound 10">
+              <input type="text" class='col' name="10" placeholder="sound 11">
+              <input type="text" class='col' name="11" placeholder="sound 12">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="12" placeholder="sound 13">
+              <input type="text" class='col' name="13" placeholder="sound 14">
+              <input type="text" class='col' name="14" placeholder="sound 15">
+              <input type="text" class='col' name="15" placeholder="sound 16">
+            </div>
+            <div class='row'>
+              <input type="submit" data-toggle="modal" data-target="#create" class='button col' value="CREATE!">
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+<!-- Modal Create-->
 
 <!-- Modal Update-->
- <div class="modal fade" id="update-collection" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <h3>Update Collection</h3>
-      <form id='update-collection' class='border'>
-        <fieldset>
-          <div class='row'>
-            <input type="text" class='col-6' name="collection[name]" placeholder="Name">
-            <input type="text" class='col-6' name="collection[author]" placeholder="Author">
-          </div>
-          <div class='row'>
-            <input class="0" type="text" class='col-3' name="0" placeholder="sound 1">
-            <input class="1" type="text" class='col-3' name="1" placeholder="sound 2">
-            <input class="2" type="text" class='col-3' name="2" placeholder="sound 3">
-            <input class="3" type="text" class='col-3' name="3" placeholder="sound 4">
-          </div>
-          <div class='row'>
-            <input class="4" type="text" class='col-3' name="4" placeholder="sound 5">
-            <input class="5" type="text" class='col-3' name="5" placeholder="sound 6">
-            <input class="6" type="text" class='col-3' name="6" placeholder="sound 7">
-            <input class="7" type="text" class='col-3' name="7" placeholder="sound 8">
-          </div>
-          <div class='row'>
-            <input class="8" type="text" class='col-3' name="8" placeholder="sound 9">
-            <input class="9" type="text" class='col-3' name="9" placeholder="sound 10">
-            <input class="10" type="text" class='col-3' name="10" placeholder="sound 11">
-            <input class="11" type="text" class='col-3' name="11" placeholder="sound 12">
-          </div>
-          <div class='row'>
-            <input class="12" type="text" class='col-3' name="12" placeholder="sound 13">
-            <input class="13" type="text" class='col-3' name="13" placeholder="sound 14">
-            <input class="14" type="text" class='col-3' name="14" placeholder="sound 15">
-            <input class="15" type="text" class='col-3' name="15" placeholder="sound 16">
-          </div>
-          <div class='row'>
-            <input type="submit" class='button col-12' value="UPDATE!">
-          </div>
-        </fieldset>
-      </form>
+<div class="wrapper">
+  <div class="modal fade under" id="update" tabindex="-2" role="dialog" aria-labelledby="updateCollectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <h3>Update Collection</h3>
+        <form id='update-collection'>
+          <fieldset>
+            <div class='row'>
+              <input type="text" class='col' name="collection[name]" placeholder="Name">
+              <input type="text" class='col' name="collection[author]" placeholder="Author">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="0" placeholder="sound 1">
+              <input type="text" class='col' name="1" placeholder="sound 2">
+              <input type="text" class='col' name="2" placeholder="sound 3">
+              <input type="text" class='col' name="3" placeholder="sound 4">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="4" placeholder="sound 5">
+              <input type="text" class='col' name="5" placeholder="sound 6">
+              <input type="text" class='col' name="6" placeholder="sound 7">
+              <input type="text" class='col' name="7" placeholder="sound 8">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="8" placeholder="sound 9">
+              <input type="text" class='col' name="9" placeholder="sound 10">
+              <input type="text" class='col' name="10" placeholder="sound 11">
+              <input type="text" class='col' name="11" placeholder="sound 12">
+            </div>
+            <div class='row'>
+              <input type="text" class='col' name="12" placeholder="sound 13">
+              <input type="text" class='col' name="13" placeholder="sound 14">
+              <input type="text" class='col' name="14" placeholder="sound 15">
+              <input type="text" class='col' name="15" placeholder="sound 16">
+            </div>
+            <div class='row'>
+              <input type="submit" data-toggle="modal" data-target="#update" class='button col' value="UPDATE!">
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+<!-- Modal Update -->
 
 <!--Browse Collections Modal-->
-<div class="modal fade" id="browse-collection" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="wrapper">
+<div class="modal fade under" id="browse-collection" tabindex="-1" role="dialog" aria-labelledby="BrowseCollectionsLabel" aria-hidden="true">
  <div class="modal-dialog modal-lg">
    <div class="modal-content">
      <h3>All Collections</h3>
@@ -189,6 +198,8 @@
    </div>
  </div>
 </div>
+</div>
+<!--Browse Collections Modal-->
 
 <!-- Sampler`s pad -->
  <div class="main">
@@ -222,9 +233,16 @@
     </tbody>
   </table>
 </div>
-
 </div>
+<!-- Sampler`s pad -->
 
+<!-- Footer -->
+<footer class="footer py-4">
+  <div class="container text-center">
+      <div id='general-message'></div>
+  </div>
+</footer>
+<!-- Footer -->
 
   </body>
   </html>

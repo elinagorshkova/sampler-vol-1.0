@@ -3,32 +3,33 @@
 const store = require('../store')
 
 const signUpSuccess = function () {
-  console.log('Signed Up Successfully')
-  $('#sign-in-message').text('Signed Up Successfully')
+  $('#general-message').text('Signed Up Successfully')
 }
 
 const signInSuccess = function (data) {
   store.user = data.user
+  $('#general-message').text('Signed In Successfully')
   $('.when-signed-in').show()
-  $('#sign-in-message').text('Signed In Successfully')
   $('#when-not-signed-in').hide()
-  console.log('Signed In Successfully')
 }
 
 const changePasswordSuccess = function () {
-  console.log('Password changed')
+  $('#general-message').text('Password Changed successfully')
 }
 
 const signOutSuccess = function () {
   store.user = null
-  console.log('Signed out successfully')
+  $('#general-message').text('Signed Out Successfully')
+  $('.when-signed-in').hide()
+  $('#when-not-signed-in').show()
 }
+
 const authFailure = function () {
-  console.log('Failure')
+  $('#general-message').text('Incorrect credentials')
 }
 
 const failure = function () {
-  console.error('Failure')
+  $('#general-message').text('Unknown Error')
 }
 
 module.exports = {

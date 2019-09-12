@@ -1,0 +1,10 @@
+/* Sticky Footer Classes */
+.footer {
+  color: #92badd;
+  background-color: $blue;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: + 1;
+  flex-shrink: none;
+}
