@@ -28,6 +28,10 @@ const showAllCollectionsSuccess = function (data) {
   $('#library').html(showCollectionsHtml)
 }
 
+const updateCollectionSuccess = function () {
+ console.log('Updated successfully')
+}
+
 const failure = function () {
   console.error('Failure')
 }
@@ -37,5 +41,6 @@ module.exports = {
   deleteCollectionSuccess,
   setCollectionSuccess,
   showAllCollectionsSuccess,
+  updateCollectionSuccess,
   failure
 }

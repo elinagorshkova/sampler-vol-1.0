@@ -10,7 +10,7 @@ const addHandlers = () => {
   $(document).on('keydown', playSound)
   // $(document).on( 'keydown click', playSound)
   $('#library').on('click', '.set-collection', onSetCollection)
-  $('#library').on('click', '#update', onUpdate)
+  $('#library').on('click', '#update-button', onUpdate)
   $('#update-collection').on('submit', onUpdateCollection)
   $('#library').on('click', '.delete-collection', onDeleteCollection)
   $('#create-collection').on('submit', onCreateCollection)
@@ -49,6 +49,7 @@ const onSetCollection = function (event) {
 }
 
 const onUpdate = function () {
+  $('#browse-collection').hide()
   const collectionId = $(event.target).closest('section').data('id')
   store.collectionId = collectionId
 }

@@ -4,15 +4,10 @@ const api = require('./api') // link to API call file
 const ui = require('./ui') // link to UI file
 
 const addHandlers = () => {
-  $('#test').on('click', onTest)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
-}
-
-const onTest = function (event) {
-  console.log('Hi')
 }
 
 const onSignUp = function (event) {
@@ -58,7 +53,6 @@ const onSignOut = function (event) {
 
 module.exports = {
   addHandlers,
-  onTest,
   onSignUp,
   onSignIn,
   onChangePassword,
