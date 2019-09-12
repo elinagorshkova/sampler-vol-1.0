@@ -36,13 +36,13 @@ const showAllCollectionsSuccess = function (data) {
     collections: data.collections
   })
   store.collections = data.collections
-  console.log('data' + data.collections[0].id)
-  console.log('id user is' + store.user.id)
   $('#library').html(showCollectionsHtml)
   $('#general-message').text('Collections are displayed')
+  $('#browse-message').text('')
 }
 
 const updateCollectionSuccess = function () {
+  $('#browse-collection').modal('hide')
   $('#general-message').text('Collection is Updated Successfully')
 }
 

@@ -11,7 +11,7 @@ const addHandlers = () => {
   // $(document).on( 'keydown click', playSound)
   $('#library').on('click', '.set-collection', onSetCollection)
   $('#library').on('click', '#update-button', onUpdate)
-  $('#update-collection').on('submit', onUpdateCollection)
+  // $('#update-collection').on('submit', onUpdateCollection)
   $('#library').on('click', '.delete-collection', onDeleteCollection)
   $('#create-collection').on('submit', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
@@ -34,9 +34,15 @@ const onCreateCollection = function (event) {
 const onDeleteCollection = function (event) {
   event.preventDefault()
   const collectionId = $(event.target).closest('section').data('id')
-  api.deleteCollection(collectionId)
-    .then(ui.DeleteCollectionSuccess)
-    .catch(ui.failure)
+  const index = store.collections.findIndex(p => p.id === collectionId)
+  if ((store.collections[index].user !== null) && (store.collections[index].user.id === store.user.id)) {
+    api.deleteCollection(collectionId)
+      .then(ui.DeleteCollectionSuccess)
+      .catch(ui.failure)
+  } else {
+    $('#browse-message').text('You can`t change a collection that you didn`t create!')
+    $('#browse-message').css('color', 'red')
+  }
 }
 
 const onSetCollection = function (event) {
@@ -46,11 +52,19 @@ const onSetCollection = function (event) {
     .then(ui.setCollectionSuccess)
     .catch(ui.failure)
 }
-
-const onUpdate = function () {
-  $('#browse-collection').hide()
+const onUpdate = function (event) {
   const collectionId = $(event.target).closest('section').data('id')
   store.collectionId = collectionId
+  const index = store.collections.findIndex(p => p.id === collectionId)
+  if (store.collections[index].user !== null) {
+    if (store.collections[index].user.id === store.user.id) {
+      $('#browse-collection').modal('hide')
+      $('#general-message').text('')
+      $('#update').modal('show')
+    } else {
+      $('#browse-message').text('You can`t change a collection that you didn`t create!')
+    }
+  }
 }
 
 const onUpdateCollection = function (event) {
@@ -69,12 +83,13 @@ const onUpdateCollection = function (event) {
 
 const playSound = function (event) {
   if (store.padIsReady === true) {
-  const key = event.which
-  const sound = new Audio()
-  const index = myPadKeys.indexOf(key)
-  sound.src = store.pad[index]
-  sound.play()
-} else return
+    const key = event.which
+    const sound = new Audio()
+    const index = myPadKeys.indexOf(key)
+    sound.src = store.pad[index]
+    sound.play()
+    $('#general-message').text('Sound Played')
+  }
 }
 
 const onShowAllCollections = function () {
