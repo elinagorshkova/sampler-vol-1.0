@@ -29,7 +29,8 @@ const showAllCollectionsSuccess = function (data) {
 }
 
 const updateCollectionSuccess = function () {
- console.log('Updated successfully')
+  $('#browse-collection').modal('hide')
+  console.log('Updated successfully')
 }
 
 const failure = function () {
