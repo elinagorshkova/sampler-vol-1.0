@@ -23,6 +23,26 @@ body {
 
 // ANIMATIONS
 
+// keystroke animation
+.button-keys:active {
+  background-color: #222;
+  animation-name: color;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes color {
+  0% {
+      background-color: #222;
+    }
+    50% {
+      background-color: #4285f4;
+    }
+    100% {
+      background-color: #222;
+}
+}
+
 // Simple CSS3 Fade-in-down Animation
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
