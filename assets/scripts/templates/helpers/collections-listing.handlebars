@@ -1,0 +1,26 @@
+{{#each collections as |collection|}}
+  {{log collection}}
+  <section data-id="{{collection.id}}">
+    <div class="container">
+      <div class="row">
+    <p class="handlebar-field">Name: </p>
+    <p>
+      {{limit collection.name 15}}
+    </p>
+  </div>
+  <div class="row">
+    <p class="handlebar-field"> Author: </p>
+    <p>
+      {{#if collection.author}}
+        {{collection.author}}
+      {{else}}
+        No author provided.
+      {{/if}}
+    </p>
+  </div>
+    <button class="button set-collection">Set</button>
+    <button class="button" id="update" data-toggle="modal" data-target="#update-collection">Update</button>
+    <button class="button delete-collection">Remove</button>
+  </div>
+  </section>
+{{/each}}

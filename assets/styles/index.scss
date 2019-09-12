@@ -1,1 +1,71 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'auth_form';
+@import 'theme';
+@keyframes gradientBG {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+body {
+  background: linear-gradient(-45deg, $sea, $lavender, $ice, $purple);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+button {
+  color: #92badd;
+}
+
+button.hover {}
+
+#content {
+  width: 30em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.handlebar-field {
+  color: $blue;
+}
+
+.button-keys {
+  height: 100px;
+  width: 100px;
+  background-color: $gray;
+  border-color: $gray;
+}
+
+.navbar {
+  color: #92badd;
+  background-color: $blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: +1;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25%;
+  margin-top: 10%;
+  position: fixed;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
