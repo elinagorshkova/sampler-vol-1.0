@@ -4,11 +4,15 @@
 This project is a browser Tic Tac Toe game. The goal of the project is to build a dynamic web application using the most resent front-end and back-end technologies.
 
 ## Table of contents
+* [Links](#links)
 * [Technologies](#technologies)
 * [Features](#features)
 * [Status](#status)
 * [License](#license)
 * [Contact](#contact)
+
+## Links
+Deployed App
 
 ## Technologies
 Project created with:

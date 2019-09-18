@@ -23,9 +23,9 @@
             <!-- Sign Up Form -->
             <form id='sign-up'>
               <fieldset>
-                <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
-                <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
-                <input type="text" class="fadeIn third" name="credentials[password_confirmation]" placeholder="confirm password">
+                <input type="email" class="fadeIn first" name="credentials[email]" placeholder="email">
+                <input type="password" class="fadeIn second" name="credentials[password]" placeholder="password">
+                <input type="password" class="fadeIn third" name="credentials[password_confirmation]" placeholder="confirm password">
                 <input type="submit" class="fadeIn fourth" value="Sign Up">
               </fieldset>
             </form>
@@ -34,8 +34,8 @@
             <!-- Sign In Form -->
             <form id='sign-in'>
               <fieldset>
-                <input type="text" class="fadeIn first" name="credentials[email]" placeholder="email">
-                <input type="text" class="fadeIn second" name="credentials[password]" placeholder="password">
+                <input type="email" class="fadeIn first" name="credentials[email]" placeholder="email">
+                <input type="password" class="fadeIn second" name="credentials[password]" placeholder="password">
                 <input type="submit" class="fadeIn third" value="Sign In">
               </fieldset>
             </form>
@@ -44,7 +44,6 @@
         </div>
       </div>
       <!--Sign In/Sign Up form to disappear after successful login -->
-
 <!-- Content below shows up after signing in -->
   <div class="when-signed-in">
 <!--Navbar -->
@@ -77,13 +76,13 @@
 <!-- Modal Change Password-->
 <div class="wrapper">
   <div class="formContent">
-    <div class="change-pwd modal fade under" tabindex="1" role="dialog" aria-labelledby="CreateModalLabel" aria-hidden="true">
+    <div class="change-pwd modal fade under" id="change-pwd" tabindex="1" role="dialog" aria-labelledby="CreateModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <form id='change-password'>
             <fieldset>
-              <input type="text" name="passwords[old]" placeholder="Current password">
-              <input type="text" name="passwords[new]" placeholder="New password">
+              <input type="password" name="passwords[old]" placeholder="Current password">
+              <input type="password" name="passwords[new]" placeholder="New password">
               <input type='submit' class='button' value='Change Password!'>
             </fieldset>
           </form>

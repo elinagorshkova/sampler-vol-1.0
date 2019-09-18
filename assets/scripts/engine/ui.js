@@ -5,6 +5,8 @@ const showCollectionsTemplate = require('../templates/helpers/collections-listin
 
 const createCollectionSuccess = function (data) {
   $('#general-message').text('Collection created')
+  document.getElementById('create-collection').reset()
+  $('#create').modal('hide')
 }
 
 const deleteCollectionSuccess = function () {
