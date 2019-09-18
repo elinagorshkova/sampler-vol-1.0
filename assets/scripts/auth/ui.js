@@ -14,7 +14,9 @@ const signInSuccess = function (data) {
 }
 
 const changePasswordSuccess = function () {
-  $('#general-message').text('Password Changed successfully')
+  $('#pwd-change-message').text('Password Changed successfully')
+  $('#change-pwd').modal('hide')
+  $('#general-message').text('Password changed')
 }
 
 const signOutSuccess = function () {
@@ -26,6 +28,9 @@ const signOutSuccess = function () {
 
 const authFailure = function () {
   $('#general-message').text('Incorrect credentials')
+  document.getElementById('sign-up').reset()
+  document.getElementById('sign-in').reset()
+  document.getElementById('change-password').reset()
 }
 
 const failure = function () {
