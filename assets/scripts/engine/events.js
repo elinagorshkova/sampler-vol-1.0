@@ -34,15 +34,9 @@ const onCreateCollection = function (event) {
 const onDeleteCollection = function (event) {
   event.preventDefault()
   const collectionId = $(event.target).closest('section').data('id')
-  const index = store.collections.findIndex(p => p.id === collectionId)
-  if ((store.collections[index].user !== null) && (store.collections[index].user.id === store.user.id)) {
-    api.deleteCollection(collectionId)
-      .then(ui.DeleteCollectionSuccess)
-      .catch(ui.failure)
-  } else {
-    $('#browse-message').text('You can`t change a collection that you didn`t create!')
-    $('#browse-message').css('color', 'red')
-  }
+  api.deleteCollection(collectionId)
+    .then(ui.DeleteCollectionSuccess)
+    .catch(ui.failure)
 }
 
 const onSetCollection = function (event) {

@@ -15,7 +15,6 @@ const createCollection = function (data) {
 }
 
 const deleteCollection = function (collectionId) {
-  console.log('collection id' + collectionId)
   return $.ajax({
     url: config.apiUrl + '/collections/' + collectionId,
     method: 'DELETE',
@@ -28,14 +27,20 @@ const deleteCollection = function (collectionId) {
 const setCollection = function (collectionId) {
   return $.ajax({
     url: config.apiUrl + '/collections/' + collectionId,
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const showAllCollections = function () {
   return $.ajax({
     url: config.apiUrl + '/collections',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
