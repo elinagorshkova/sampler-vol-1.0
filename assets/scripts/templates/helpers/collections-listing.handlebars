@@ -16,8 +16,10 @@
           </p>
         </div>
         <button class="button chenges set-collection">Set</button>
+        {{#if collection.editable}}
         <button class="button" id="update-button">Update</button>
         <button class="button changes delete-collection">Remove</button>
+        {{/if}}
       </div>
     </section>
   </div>
