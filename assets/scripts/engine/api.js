@@ -40,7 +40,6 @@ const showAllCollections = function () {
 }
 
 const updateCollection = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/collections/' + store.collectionId,
     method: 'PATCH',

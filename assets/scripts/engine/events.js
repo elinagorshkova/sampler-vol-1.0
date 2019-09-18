@@ -11,7 +11,7 @@ const addHandlers = () => {
   // $(document).on( 'keydown click', playSound)
   $('#library').on('click', '.set-collection', onSetCollection)
   $('#library').on('click', '#update-button', onUpdate)
-  // $('#update-collection').on('submit', onUpdateCollection)
+  $('#update-collection').on('submit', onUpdateCollection)
   $('#library').on('click', '.delete-collection', onDeleteCollection)
   $('#create-collection').on('submit', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
@@ -55,16 +55,9 @@ const onSetCollection = function (event) {
 const onUpdate = function (event) {
   const collectionId = $(event.target).closest('section').data('id')
   store.collectionId = collectionId
-  const index = store.collections.findIndex(p => p.id === collectionId)
-  if (store.collections[index].user !== null) {
-    if (store.collections[index].user.id === store.user.id) {
-      $('#browse-collection').modal('hide')
-      $('#general-message').text('')
-      $('#update').modal('show')
-    } else {
-      $('#browse-message').text('You can`t change a collection that you didn`t create!')
-    }
-  }
+  $('#browse-collection').modal('hide')
+  $('#general-message').text('')
+  $('#update').modal('show')
 }
 
 const onUpdateCollection = function (event) {
