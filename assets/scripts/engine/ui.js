@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const showCollectionsTemplate = require('../templates/helpers/collections-listing.handlebars')
+const events = require('./events')
 
 const createCollectionSuccess = function (data) {
   $('#general-message').text('Collection created')
@@ -25,6 +26,7 @@ const setCollectionSuccess = function (data) {
   $('.third-row').addClass('button-keys')
   $('.fourth-row').addClass('button-keys')
   $('#browse-collection').modal('hide')
+  $('#start-playing').show()
   $('#general-message').text('Collection is set')
   // coloring the pad
   $('.first-row').css('background-color', '#8860d0')

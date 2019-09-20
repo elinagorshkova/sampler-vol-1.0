@@ -69,8 +69,8 @@ const onUpdateCollection = function (event) {
 }
 
 const playSound = function (event) {
-  if (store.padIsReady === true) {
-    const key = event.which
+  const key = event.which
+  if (store.padIsReady === true && myPadKeys.some(keys => keys === key)) {
     const sound = new Audio()
     const index = myPadKeys.indexOf(key)
     sound.src = store.pad[index]
