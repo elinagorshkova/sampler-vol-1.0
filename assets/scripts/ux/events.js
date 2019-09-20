@@ -7,6 +7,7 @@ const addHandlers = () => {
 
 const onPageLoads = function () {
   $('.when-signed-in').hide()
+  $('#start-playing').hide()
 }
 
 module.exports = {
