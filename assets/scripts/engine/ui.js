@@ -2,7 +2,6 @@
 
 const store = require('../store')
 const showCollectionsTemplate = require('../templates/helpers/collections-listing.handlebars')
-const events = require('./events')
 
 const createCollectionSuccess = function (data) {
   $('#general-message').text('Collection created')
