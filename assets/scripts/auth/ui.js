@@ -21,6 +21,7 @@ const changePasswordSuccess = function () {
 
 const signOutSuccess = function () {
   store.user = null
+  store.pad = []
   $('#general-message').text('Signed Out Successfully')
   $('.when-signed-in').hide()
   $('#when-not-signed-in').show()
