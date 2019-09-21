@@ -68,11 +68,16 @@ const onUpdateCollection = function (event) {
     .catch(ui.failure)
 }
 
+// Function plays a sound from a choosen library on a keydown
 const playSound = function (event) {
+  // Store KeyCode in key variable
   const key = event.which
+  // Check if a pad was set with a collection of sounds from the DB and
+  // if a key triggered is one of 16 corresponding to the pad keys (myPadKeys array)
   if (store.padIsReady === true && myPadKeys.some(keys => keys === key)) {
     const sound = new Audio()
     const index = myPadKeys.indexOf(key)
+    // set a sourse of sound to play from the array of sounds from the DB
     sound.src = store.pad[index]
     sound.play()
     $('#general-message').text('Sound Played')
