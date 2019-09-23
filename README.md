@@ -36,8 +36,11 @@ As a user, I want to:
 
 ## Links
 Deployed App (Front End): https://elinagorshkova.github.io/sampler-vol-1.0/
+
 GitHub Repo (Front End): https://github.com/elinagorshkova/sampler-vol-1.0
+
 Deployed Back End: https://agile-ocean-62490.herokuapp.com/
+
 GitHub Repo (Back End): https://github.com/elinagorshkova/sampler-api-client
 
 ## Screenshots
