@@ -8,7 +8,7 @@ const createCollection = function (data) {
     url: config.apiUrl + '/collections/',
     method: 'POST',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: `Bearer ${store.user.token}`
     },
     data
   })
@@ -19,7 +19,7 @@ const deleteCollection = function (collectionId) {
     url: config.apiUrl + '/collections/' + collectionId,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: `Bearer ${store.user.token}`
     }
   })
 }
@@ -29,7 +29,7 @@ const setCollection = function (collectionId) {
     url: config.apiUrl + '/collections/' + collectionId,
     method: 'GET',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: `Bearer ${store.user.token}`
     }
   })
 }
@@ -39,7 +39,7 @@ const showAllCollections = function () {
     url: config.apiUrl + '/collections',
     method: 'GET',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: `Bearer ${store.user.token}`
     }
   })
 }
@@ -49,7 +49,7 @@ const updateCollection = function (data) {
     url: config.apiUrl + '/collections/' + store.collectionId,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: `Bearer ${store.user.token}`
     },
     data
   })

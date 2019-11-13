@@ -1,6 +1,6 @@
 {{#each collections as |collection|}}
   <div class="wrapper">
-    <section data-id="{{collection.id}}">
+    <section data-id="{{collection._id}}">
       <div class="container">
         <div class="row">
           <p class="handlebar-field">Name:&nbsp;</p>
@@ -11,15 +11,13 @@
         <div class="row">
           <p class="handlebar-field">Author:&nbsp;</p>
           <p>
-            {{limit collection.author 15}}
+            {{limit collection.owner 15}}
           </p>
         </div>
         <!-- Buttons are shown depending on whether the collection is editable or not -->
         <button class="button chenges set-collection">Set</button>
-        {{#if collection.editable}}
         <button class="button" id="update-button">Update</button>
         <button class="button changes delete-collection">Remove</button>
-        {{/if}}
       </div>
     </section>
   </div>

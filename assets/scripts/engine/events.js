@@ -20,12 +20,13 @@ const addHandlers = () => {
 const onCreateCollection = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  let sounds = []
+  console.log('data create is: ', data)
+  const sounds = []
   for (let i = 0; i < 16; i++) {
     sounds.push(data[i])
   }
-  sounds = ',' + sounds.toString() + ','
   data.collection.sounds = sounds
+  console.log('data create is: ', data)
   api.createCollection(data)
     .then(ui.createCollectionSuccess)
     .catch(ui.failure)
@@ -78,7 +79,9 @@ const playSound = function (event) {
     const sound = new Audio()
     const index = myPadKeys.indexOf(key)
     // set a sourse of sound to play from the array of sounds from the DB
+    console.log('souns is: ', sound)
     sound.src = store.pad[index]
+    console.log('souns is: ', sound)
     sound.play()
     $('#general-message').text('Sound Played')
   }
