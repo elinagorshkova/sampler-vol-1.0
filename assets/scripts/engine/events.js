@@ -11,11 +11,12 @@ const addHandlers = () => {
   // $(document).on( 'keydown click', playSound)
   $('#library').on('click', '.set-collection', onSetCollection)
   $('#library').on('click', '#update-button', onUpdate)
-  $('#update-collection').on('submit', onUpdateCollection)
+  $('#update-collection').on('click', onUpdateCollection)
   $('#library').on('click', '.delete-collection', onDeleteCollection)
   $('#create-collection').on('click', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
   $('.collection-name').on('submit', updateCollectionName)
+  $('#set-index').on('submit', updateSoundIndex)
 }
 
 /* Storing the collection name from the create/update forms in the store to
@@ -24,6 +25,13 @@ const updateCollectionName = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.name = data.collection.name
+}
+
+const updateSoundIndex = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  store.soundIndex = (data.soundIndex - 1)
+  console.log('id: ', store.soundIndex)
 }
 
 const onCreateCollection = function (event) {
@@ -57,19 +65,22 @@ const onUpdate = function (event) {
   $('#browse-collection').modal('hide')
   $('#general-message').text('')
   $('#update').modal('show')
+
+  api.setCollection(collectionId)
+    .then(res => {
+      store.sounds = res.collection.sounds
+      console.log('store.sounds after set: ', store.sounds)
+    })
 }
 
 const onUpdateCollection = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  let sounds = []
-  for (let i = 0; i < 16; i++) {
-    sounds.push(data[i])
-  }
-  sounds = ',' + sounds.toString() + ','
-  data.collection.sounds = sounds
-  api.updateCollection(data)
-    .then(ui.updateCollectionSuccess)
+  // We will pass the data from the store to the api call
+  const name = store.name
+  const data = store.sounds
+  const id = store.updateId
+  api.updateCollection(id, name, data)
+    .then(ui.createCollectionSuccess)
     .catch(ui.failure)
 }
 

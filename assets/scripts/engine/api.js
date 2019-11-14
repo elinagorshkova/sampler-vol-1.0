@@ -49,14 +49,19 @@ const showAllCollections = function () {
   })
 }
 
-const updateCollection = function (name, data) {
+const updateCollection = function (id, name, data) {
   return $.ajax({
     url: config.apiUrl + '/collections/' + store.collectionId,
     method: 'PATCH',
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
-    data
+    data: {
+      'collection': {
+        'name': name,
+        'sounds': data
+      }
+    }
   })
 }
 
