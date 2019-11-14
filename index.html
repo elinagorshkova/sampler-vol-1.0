@@ -31,11 +31,12 @@
             </form>
             <!-- Sign Up Form -->
             <a class="underlineHover">Already a user? Sign In</a>
+            <p>Please use the pre-populated credentials for demo</p>
             <!-- Sign In Form -->
             <form id='sign-in'>
               <fieldset>
-                <input type="email" class="fadeIn first" name="credentials[email]" placeholder="email">
-                <input type="password" class="fadeIn second" name="credentials[password]" placeholder="password">
+                <input type="email" class="fadeIn first" name="credentials[email]" placeholder="email" value="a@a">
+                <input type="password" class="fadeIn second" name="credentials[password]" placeholder="password" value="aa">
                 <input type="submit" class="fadeIn third" value="Sign In">
               </fieldset>
             </form>
@@ -48,30 +49,29 @@
   <div class="when-signed-in">
 <!--Navbar -->
 <nav class="navbar">
+  <div class="container">
   <h1>Sampler vol-1.0</h1>
   <button class="navbar-toggler underlineHover" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <div class="row">
-      <ul class="navbar-nav">
-        <li>
-          <button type="button" class="button" data-toggle="modal" data-target="#create">Create a collection</button>
-        </li>
-        <li>
-          <button type="button" class="button" data-toggle="modal" data-target="#browse-collection" id='get_all_collections'>Explore collections</button>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li>
-          <button class="button underlineHover" data-toggle="modal" data-target=".change-pwd">Change Password</button>
-        </li>
-        <li>
-          <button class='button' id="sign-out">Sign Out</button>
-        </li>
-      </ul>
+      <div class="row">
+      <div class="navbar-nav">
+          <a  class="underlineHover" data-toggle="modal" data-target="#create">Create a collection</a>
+          <a class="underlineHover" data-toggle="modal" data-target="#browse-collection" id='get_all_collections'>Explore collections</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="navbar-nav">
+          <a class="underlineHover" data-toggle="modal" data-target=".change-pwd">Change Password</a>
+          <a class='underlineHover' id="sign-out">Sign Out</a>
+      </div>
+    </div>
     </div>
   </div>
+</div>
 </nav>
 <!--Navbar -->
+
 
 <!-- Modal Change Password-->
 <div class="wrapper">
@@ -93,47 +93,100 @@
 </div>
 <!-- Modal Change Password-->
 
-<!-- Modal Create-->
+<!-- Modal Create with upload-->
 <div class="wrapper">
   <div class="modal fade under" id="create" tabindex="2" role="dialog" aria-labelledby="createCollectionModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <h3>Create a new collection</h3>
-        <form id='create-collection'>
-          <fieldset>
-            <div class='row'>
-              <input type="text" class='col' name="collection[name]" placeholder="Name">
-              <input type="text" class='col' name="collection[author]" placeholder="Author">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="0" placeholder="sound 1">
-              <input type="text" class='col' name="1" placeholder="sound 2">
-              <input type="text" class='col' name="2" placeholder="sound 3">
-              <input type="text" class='col' name="3" placeholder="sound 4">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="4" placeholder="sound 5">
-              <input type="text" class='col' name="5" placeholder="sound 6">
-              <input type="text" class='col' name="6" placeholder="sound 7">
-              <input type="text" class='col' name="7" placeholder="sound 8">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="8" placeholder="sound 9">
-              <input type="text" class='col' name="9" placeholder="sound 10">
-              <input type="text" class='col' name="10" placeholder="sound 11">
-              <input type="text" class='col' name="11" placeholder="sound 12">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="12" placeholder="sound 13">
-              <input type="text" class='col' name="13" placeholder="sound 14">
-              <input type="text" class='col' name="14" placeholder="sound 15">
-              <input type="text" class='col' name="15" placeholder="sound 16">
-            </div>
-            <div class='row'>
-              <input type="submit" data-toggle="modal" data-target="#create" class='button col' value="CREATE!">
-            </div>
-          </fieldset>
+        <form class="collection-name">
+        <input type="text" class='col' name="collection[name]" placeholder="Name">
+        <input type="submit" value="save name">
+      </form>
+        <form class="file-upload" name="0">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
         </form>
+        <form class="file-upload" name="1">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="2">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="3">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+
+        <form class="file-upload" name="4">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload"  name="5">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="6">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="7">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+
+        <form class="file-upload" name="8">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload"  name="9">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="10">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="11">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+
+        <form class="file-upload" name="12">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload"  name="13">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="14">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <form class="file-upload" name="15">
+        <label for="file-upload">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
+        </form>
+        <button id="create-collection">Create collection </button>
       </div>
     </div>
   </div>
@@ -145,42 +198,41 @@
   <div class="modal fade under" id="update" tabindex="-2" role="dialog" aria-labelledby="updateCollectionModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <div class="row>">
         <h3>Update Collection</h3>
-        <form id='update-collection'>
-          <fieldset>
-            <div class='row'>
-              <input type="text" class='col' name="collection[name]" placeholder="Name">
-              <input type="text" class='col' name="collection[author]" placeholder="Author">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="0" placeholder="sound 1">
-              <input type="text" class='col' name="1" placeholder="sound 2">
-              <input type="text" class='col' name="2" placeholder="sound 3">
-              <input type="text" class='col' name="3" placeholder="sound 4">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="4" placeholder="sound 5">
-              <input type="text" class='col' name="5" placeholder="sound 6">
-              <input type="text" class='col' name="6" placeholder="sound 7">
-              <input type="text" class='col' name="7" placeholder="sound 8">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="8" placeholder="sound 9">
-              <input type="text" class='col' name="9" placeholder="sound 10">
-              <input type="text" class='col' name="10" placeholder="sound 11">
-              <input type="text" class='col' name="11" placeholder="sound 12">
-            </div>
-            <div class='row'>
-              <input type="text" class='col' name="12" placeholder="sound 13">
-              <input type="text" class='col' name="13" placeholder="sound 14">
-              <input type="text" class='col' name="14" placeholder="sound 15">
-              <input type="text" class='col' name="15" placeholder="sound 16">
-            </div>
-            <div class='row'>
-              <input type="submit" data-toggle="modal" data-target="#update" class='button col' value="UPDATE!">
-            </div>
-          </fieldset>
+      </div>
+        <form class="collection-name row">
+        <input type="text" class='col' name="collection[name]" placeholder="Name">
+        <input type="submit" value="save name">
+      </form>
+      <form id="set-index">
+        <select class="form-control" name="soundIndex">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+        </select>
+        <input type="submit" value="save name">
+      </form>
+        <form class="file-upload-update">
+        <label for="file-upload-update">Upload File</label>
+        <input type="file" name="upload" class="form-control-file">
+        <input type="submit" value="Submit">
         </form>
+
+        <button id="update-collection">Create collection </button>
       </div>
     </div>
   </div>

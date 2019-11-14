@@ -14,12 +14,14 @@ const deleteCollectionSuccess = function () {
 }
 
 const setCollectionSuccess = function (data) {
+  console.log('data is:', data)
   store.padIsReady = true
   const pad = []
   for (let i = 0; i < 16; i++) {
     pad.push(data.collection.sounds[i])
   }
   store.pad = pad
+  console.log('pad is: ', pad)
   $('.first-row').addClass('button-keys')
   $('.second-row').addClass('button-keys')
   $('.third-row').addClass('button-keys')
@@ -35,6 +37,7 @@ const setCollectionSuccess = function (data) {
 }
 
 const showAllCollectionsSuccess = function (data) {
+  console.log('data.collections: ', data.collections)
   const showCollectionsHtml = showCollectionsTemplate({
     collections: data.collections
   })
