@@ -3,6 +3,17 @@
 const config = require('../config')
 const store = require('../store')
 
+// const createCollection = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/collections/',
+//     method: 'POST',
+//     headers: {
+//       Authorization: `Bearer ${store.user.token}`
+//     },
+//     data
+//   })
+// }
+
 const createCollection = function (data) {
   return $.ajax({
     url: config.apiUrl + '/collections/',
@@ -10,7 +21,12 @@ const createCollection = function (data) {
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
-    data
+    data: {
+      'collection': {
+        'name': 'New Collection',
+        'sounds': data
+      }
+    }
   })
 }
 

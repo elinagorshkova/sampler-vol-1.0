@@ -13,19 +13,28 @@ const addHandlers = () => {
   $('#library').on('click', '#update-button', onUpdate)
   $('#update-collection').on('submit', onUpdateCollection)
   $('#library').on('click', '.delete-collection', onDeleteCollection)
-  $('#create-collection').on('submit', onCreateCollection)
+  $('#create-collection').on('click', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
 }
 
+// const onCreateCollection = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   console.log('data create is: ', data)
+//   const sounds = []
+//   for (let i = 0; i < 16; i++) {
+//     sounds.push(data[i])
+//   }
+//   data.collection.sounds = sounds
+//   console.log('data create is: ', data)
+//   api.createCollection(data)
+//     .then(ui.createCollectionSuccess)
+//     .catch(ui.failure)
+// }
 const onCreateCollection = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log('data create is: ', data)
-  const sounds = []
-  for (let i = 0; i < 16; i++) {
-    sounds.push(data[i])
-  }
-  data.collection.sounds = sounds
+  console.log('clicked')
+  const data = store.sounds
   console.log('data create is: ', data)
   api.createCollection(data)
     .then(ui.createCollectionSuccess)
