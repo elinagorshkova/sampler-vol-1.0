@@ -15,28 +15,23 @@ const addHandlers = () => {
   $('#library').on('click', '.delete-collection', onDeleteCollection)
   $('#create-collection').on('click', onCreateCollection)
   $('#get_all_collections').on('click', onShowAllCollections)
+  $('.collection-name').on('submit', updateCollectionName)
 }
 
-// const onCreateCollection = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   console.log('data create is: ', data)
-//   const sounds = []
-//   for (let i = 0; i < 16; i++) {
-//     sounds.push(data[i])
-//   }
-//   data.collection.sounds = sounds
-//   console.log('data create is: ', data)
-//   api.createCollection(data)
-//     .then(ui.createCollectionSuccess)
-//     .catch(ui.failure)
-// }
+/* Storing the collection name from the create/update forms in the store to
+further send it in a post/put request */
+const updateCollectionName = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  store.name = data.collection.name
+}
+
 const onCreateCollection = function (event) {
   event.preventDefault()
-  console.log('clicked')
+  // We will pass the data from the store to the api call
+  const name = store.name
   const data = store.sounds
-  console.log('data create is: ', data)
-  api.createCollection(data)
+  api.createCollection(name, data)
     .then(ui.createCollectionSuccess)
     .catch(ui.failure)
 }

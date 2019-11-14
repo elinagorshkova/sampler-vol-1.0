@@ -10,9 +10,9 @@ $(() => {
   engineEvents.addHandlers()
   uxEvents.addHandlers()
   uploadEvents.addHandlers()
-  initialize()
+  initializeStore()
 })
 
-const initialize = function () {
+const initializeStore = function () {
   store.sounds = []
 }

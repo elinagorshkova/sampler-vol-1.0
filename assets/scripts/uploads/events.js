@@ -9,10 +9,8 @@ const addHandlers = () => {
 }
 
 const onCreateUpload = function (event) {
-  $('.display').html(`<img src="https://i.gifer.com/1FNa.gif">`)
   // prevent default page reload
-  const id = event.target.id
-  console.log('id is: ', id)
+  const id = event.target.name
   event.preventDefault()
   // Get Data from the form
   const data = new FormData(event.target)
@@ -20,7 +18,6 @@ const onCreateUpload = function (event) {
     .then(data => {
       const url = data.fileUpload.url
       store.sounds.splice(id, 0, url)
-      console.log(store.sounds)
       return data
     })
     .then(ui.uploadSucces)
