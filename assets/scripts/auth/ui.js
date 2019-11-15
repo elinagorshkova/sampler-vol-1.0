@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const engineEvents = require('../engine/events')
 
 const signUpSuccess = function () {
   $('#general-message').text('Signed Up Successfully')
@@ -8,6 +9,7 @@ const signUpSuccess = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  engineEvents.onShowAllCollections()
   $('#general-message').text('Signed In Successfully')
   $('.when-signed-in').show()
   $('#when-not-signed-in').hide()
