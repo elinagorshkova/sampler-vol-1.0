@@ -1,7 +1,7 @@
 'use strict'
 
 const uploadSucces = function (data) {
-  console.log('Success')
+  $('.upload-message').text('Uploaded successfully')
 }
 
 module.exports = {

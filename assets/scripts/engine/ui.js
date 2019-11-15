@@ -5,8 +5,15 @@ const showCollectionsTemplate = require('../templates/helpers/collections-listin
 
 const createCollectionSuccess = function (data) {
   $('#general-message').text('Collection created')
-  document.getElementById('create-collection').reset()
+  $('.collection-name').val('')
+  formReset()
   $('#create').modal('hide')
+}
+
+const formReset = () => {
+  for (let i = 0; i < 16; i++) {
+    $('.file-upload')[i].reset()
+  }
 }
 
 const deleteCollectionSuccess = function () {
@@ -14,14 +21,12 @@ const deleteCollectionSuccess = function () {
 }
 
 const setCollectionSuccess = function (data) {
-  console.log('data is:', data)
   store.padIsReady = true
   const pad = []
   for (let i = 0; i < 16; i++) {
     pad.push(data.collection.sounds[i])
   }
   store.pad = pad
-  console.log('pad is: ', pad)
   $('#browse-collection').modal('hide')
   $('#start-playing').show()
   $('#general-message').text('Collection is set')
@@ -33,7 +38,6 @@ const setCollectionSuccess = function (data) {
 }
 
 const showAllCollectionsSuccess = function (data) {
-  console.log('data.collections: ', data.collections)
   const showCollectionsHtml = showCollectionsTemplate({
     collections: data.collections
   })
@@ -44,7 +48,7 @@ const showAllCollectionsSuccess = function (data) {
 }
 
 const updateCollectionSuccess = function () {
-  $('#browse-collection').modal('hide')
+  $('#update').modal('hide')
   $('#general-message').text('Collection is Updated Successfully')
 }
 
