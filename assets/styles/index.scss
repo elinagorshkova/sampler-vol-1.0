@@ -74,14 +74,17 @@ button:focus {
 }
 
 .button-keys {
+  font-size: 20px;
+  margin: 2px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   background-color: $gray;
-  border-color: $gray;
+  border: 3px solid rgba(255, 255, 255, .25);
 }
 
 .logo {
@@ -124,8 +127,19 @@ button:focus {
     align-items: center;
     justify-content: center;
 }
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 .title {
   color: $lightgray;
+}
+
+table {
+  border-collapse: collapse;
 }
 td {
   color: transparent;

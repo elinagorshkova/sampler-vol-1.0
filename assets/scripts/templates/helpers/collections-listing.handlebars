@@ -1,25 +1,16 @@
 {{#each collections as |collection|}}
-  <div class="wrapper">
     <section data-id="{{collection._id}}">
       <div class="container">
-        <div class="row">
-          <p class="handlebar-field">Name:&nbsp;</p>
+        <div class="row collection-name">
           <p>
             {{limit collection.name 15}}
           </p>
         </div>
-        <div class="row">
-          <p class="handlebar-field">Author:&nbsp;</p>
-          <p>
-            {{limit collection.owner 15}}
-          </p>
-        </div>
         <!-- Buttons are shown depending on whether the collection is editable or not -->
-        <button class="button chenges set-collection">Set</button>
-        <button class="button" id="update-button">Update</button>
-        <button class="button changes delete-collection">Remove</button>
+        <a class="underlineHoverBlue chenges set-collection">Set</a>
+        <a class="underlineHoverYellow" id="update-button">Update</a>
+        <a class="underlineHoverRed changes delete-collection">Remove</a>
       </div>
     </section>
-  </div>
   <hr>
 {{/each}}
