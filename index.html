@@ -15,6 +15,7 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -51,28 +52,18 @@
   <div class="when-signed-in">
 <!--Navbar -->
 <nav class="navbar">
-    <div class="container header-main">
-      <div class="row">
-  <i class="fas fa-headphones-alt logo animated pulse"></i>
-  <h1 class="title">Sampler Pads</h1>
-</div>
-  <button class="navbar-toggler underlineHover" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
-</div>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="container header-main">
     <div class="row">
-      <div class="row">
-      <div class="navbar-nav">
-          <a  class="underlineHover" data-toggle="modal" data-target="#create">Create a collection</a>
-          <a class="underlineHover" data-toggle="modal" data-target="#browse-collection" id='get_all_collections'>Explore collections</a>
-      </div>
+      <i class="fas fa-headphones-alt logo animated pulse"></i>
+      <h1 class="title">Sampler Pads</h1>
     </div>
-    <div class="row">
-      <div class="navbar-nav">
+    <button class="navbar-toggler underlineHover" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav col container-menu">
           <a class="underlineHover" data-toggle="modal" data-target=".change-pwd">Change Password</a>
           <a class='underlineHover' id="sign-out">Sign Out</a>
-      </div>
-    </div>
-    </div>
+        </div>
   </div>
 </nav>
 <!--Navbar -->
@@ -97,6 +88,60 @@
   </div>
 </div>
 <!-- Modal Change Password-->
+
+
+
+<!-- Main window -->
+<div class="main container">
+  <div class="row">
+  <div class="col col-md-8">
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <header>
+    <a class="underlineHover" data-toggle="modal" data-target="#create">Create a new collection</a>
+    </header>
+    <div class="nav">
+        <div class="content" id="library"></div>
+    </div>
+  </div>
+</div>
+  <div class="pad-section col col-md-4">
+    <!-- Sampler`s pad -->
+    <table id="pad">
+      <tbody>
+        <tr>
+          <td> <div class='first-row button-keys' id='49'>1</div></td>
+          <td> <div class='first-row button-keys' id='50'>2</div></td>
+          <td> <div class='first-row button-keys' id='51'>3</div></td>
+          <td> <div class='first-row button-keys' id='52'>4</div></td>
+          <td>
+        </tr>
+        <tr>
+          <td> <div class='second-row button-keys' id='81'>Q</div></td>
+          <td> <div class='second-row button-keys' id='87'>W</div></td>
+          <td> <div class='second-row button-keys' id='69'>E</div></td>
+          <td> <div class='second-row button-keys' id='82'>R</div></td>
+        </tr>
+        <tr>
+          <td> <div class='third-row button-keys' id='65'>A</div></td>
+          <td> <div class='third-row button-keys' id='83'>S</div></td>
+          <td> <div class='third-row button-keys' id='68'>D</div></td>
+          <td> <div class='third-row button-keys' id='70'>F</div></td>
+        </tr>
+        <tr>
+          <td> <div class='fourth-row button-keys' id='90'>Z</div></td>
+          <td> <div class='fourth-row button-keys' id='88'>X</div></td>
+          <td> <div class='fourth-row button-keys' id='67'>C</div></td>
+          <td> <div class='fourth-row button-keys' id='86'>V</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Sampler`s pad -->
+</div>
+</div>
+<!-- Main Window -->
 
 <!-- Modal Create with upload-->
 <div class="wrapper">
@@ -244,54 +289,7 @@
 </div>
 <!-- Modal Update -->
 
-<!--Browse Collections Modal-->
-<div class="wrapper">
-<div class="modal fade under" id="browse-collection" tabindex="-1" role="dialog" aria-labelledby="BrowseCollectionsLabel" aria-hidden="true">
- <div class="modal-dialog modal-lg">
-   <div class="modal-content">
-     <h3>All Collections</h3>
-     <p id="browse-message"></p>
-      <div class="content" id="library"></div>
-   </div>
- </div>
 </div>
-</div>
-<!--Browse Collections Modal-->
-
-<!-- Sampler`s pad -->
- <div class="main">
-  <table id="pad">
-    <tbody>
-      <tr>
-        <td> <div class='first-row' id='49'>1</div></td>
-        <td> <div class='first-row' id='50'>2</div></td>
-        <td> <div class='first-row' id='51'>3</div></td>
-        <td> <div class='first-row' id='52'>4</div></td>
-        <td>
-      </tr>
-      <tr>
-        <td> <div class='second-row' id='81'>Q</div></td>
-        <td> <div class='second-row' id='87'>W</div></td>
-        <td> <div class='second-row' id='69'>E</div></td>
-        <td> <div class='second-row' id='82'>R</div></td>
-      </tr>
-      <tr>
-        <td> <div class='third-row' id='65'>A</div></td>
-        <td> <div class='third-row' id='83'>S</div></td>
-        <td> <div class='third-row' id='68'>D</div></td>
-        <td> <div class='third-row' id='70'>F</div></td>
-      </tr>
-      <tr>
-        <td> <div class='fourth-row' id='90'>Z</div></td>
-        <td> <div class='fourth-row' id='88'>X</div></td>
-        <td> <div class='fourth-row' id='67'>C</div></td>
-        <td> <div class='fourth-row' id='86'>V</div></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-<!-- Sampler`s pad -->
 
 <!-- Footer -->
 <footer class="footer py-4">
