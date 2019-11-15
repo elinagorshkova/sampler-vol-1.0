@@ -18,7 +18,6 @@ const addHandlers = () => {
   $('.collection-name').on('submit', updateCollectionName)
   $('#set-index').on('submit', updateSoundIndex)
 }
-
 /* Storing the collection name from the create/update forms in the store to
 further send it in a post/put request */
 const updateCollectionName = function (event) {
@@ -29,9 +28,9 @@ const updateCollectionName = function (event) {
 
 const updateSoundIndex = function (event) {
   event.preventDefault()
+  const keys = ['1', '2', '3', '4', 'Q', 'W', 'E', 'R', 'A', 'S', 'D', 'F', 'Z', 'X', 'C', 'V']
   const data = getFormFields(event.target)
-  store.soundIndex = (data.soundIndex - 1)
-  console.log('id: ', store.soundIndex)
+  store.soundIndex = keys.indexOf(data.soundIndex)
 }
 
 const onCreateCollection = function (event) {
@@ -41,6 +40,7 @@ const onCreateCollection = function (event) {
   const data = store.sounds
   api.createCollection(name, data)
     .then(ui.createCollectionSuccess)
+    .then(onShowAllCollections)
     .catch(ui.failure)
 }
 
@@ -49,6 +49,7 @@ const onDeleteCollection = function (event) {
   const collectionId = $(event.target).closest('section').data('id')
   api.deleteCollection(collectionId)
     .then(ui.DeleteCollectionSuccess)
+    .then(onShowAllCollections)
     .catch(ui.failure)
 }
 
@@ -69,7 +70,8 @@ const onUpdate = function (event) {
   api.setCollection(collectionId)
     .then(res => {
       store.sounds = res.collection.sounds
-      console.log('store.sounds after set: ', store.sounds)
+      store.name = res.collection.name
+      $('#collection-name-update').val(store.name)
     })
 }
 
@@ -80,24 +82,25 @@ const onUpdateCollection = function (event) {
   const data = store.sounds
   const id = store.updateId
   api.updateCollection(id, name, data)
-    .then(ui.createCollectionSuccess)
+    .then(ui.updateCollectionSuccess)
+    .then(onShowAllCollections)
     .catch(ui.failure)
 }
 
 // Function plays a sound from a choosen library on a keydown
 const playSound = function (event) {
+  $('#' + store.key).removeClass('animated pulse duration-1s')
   // Store KeyCode in key variable
-  const key = event.which
+  store.key = event.which
   // Check if a pad was set with a collection of sounds from the DB and
   // if a key triggered is one of 16 corresponding to the pad keys (myPadKeys array)
-  if (store.padIsReady === true && myPadKeys.some(keys => keys === key)) {
+  if (store.padIsReady === true && myPadKeys.some(keys => keys === store.key)) {
     const sound = new Audio()
-    const index = myPadKeys.indexOf(key)
+    const index = myPadKeys.indexOf(store.key)
     // set a sourse of sound to play from the array of sounds from the DB
-    console.log('souns is: ', sound)
     sound.src = store.pad[index]
-    console.log('souns is: ', sound)
     sound.play()
+    $('#' + store.key).addClass('animated pulse duration-1s')
     $('#general-message').text('Sound Played')
   }
 }

@@ -36,8 +36,6 @@ const onCreateUploadUpdate = function (event) {
     .then(data => {
       const url = data.fileUpload.url
       store.sounds[index] = url
-      // store.sounds.splice(index, 0, url)
-      console.log('store.sounds: ', store.sounds)
       return data
     })
     .then(ui.uploadSucces)

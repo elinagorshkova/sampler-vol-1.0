@@ -1,0 +1,119 @@
+@import 'theme';
+/* Sidebar Styles */
+
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  height: calc(100% - 144px);
+  margin-left: -250px;
+  overflow-y: auto;
+  background: $darkergray;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#sidebar header {
+  background-color: $darkestrgray;
+  color: #fff;
+  font-size: 20px;
+  line-height: 52px;
+  text-align: center;
+}
+
+#sidebar header a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+#sidebar header a:hover {
+  color: #fff;
+}
+
+#sidebar .nav a{
+  background: none;
+  color: #CFD8DC;
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+#sidebar .nav a:hover{
+  background: none;
+  color: #ECEFF1;
+}
+
+#sidebar .nav a i{
+  margin-right: 16px;
+}
+
+/* Handlebar */
+
+#library {
+  padding: 15px;
+}
+
+.collection-name {
+  color: $purple;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+}
+
+/* ANIMATIONS */
+.underlineHoverBlue:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: $blue;
+  content: '';
+  transition: width 0.2s;
+}
+.underlineHoverBlue:hover {
+  color: $blue;
+}
+.underlineHoverBlue:hover:after {
+  width: 100%;
+}
+
+.underlineHoverYellow:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: $yellow;
+  content: '';
+  transition: width 0.2s;
+}
+.underlineHoverYellow:hover {
+  color: $yellow;
+}
+.underlineHoverYellow:hover:after {
+  width: 100%;
+}
+
+.underlineHoverRed:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: $red;
+  content: '';
+  transition: width 0.2s;
+}
+.underlineHoverRed:hover {
+  color: $red;
+}
+.underlineHoverRed:hover:after {
+  width: 100%;
+}

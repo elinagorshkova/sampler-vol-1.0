@@ -1,21 +1,26 @@
+$primary: #f001e5;
+$fa-font-path: 'node_modules/@fortawesome/fontawesome-free/WebFonts' !default;
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/regular';
+
 @import '~bootstrap/scss/bootstrap';
 @import 'auth-form';
 @import 'theme';
 @import 'header-footer';
 @import 'animate';
+@import 'sidebar';
 
 *:focus {
   outline: none;
 }
 a {
-  color: #92badd;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   height: 100vh;
 }
 
@@ -28,11 +33,15 @@ html {
 }
 
 button {
-  color: #92badd;
+  color: $lightgray;
 }
 
 button:focus {
   outline: none;
+}
+
+.button {
+  background-color: $purple;
 }
 
 
@@ -42,35 +51,118 @@ button:focus {
   white-space: nowrap;
 }
 
+.container-menu {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    max-width: 1140px;
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+}
+
+.fas {
+  font-family: 'Font Awesome 5 Free';
+}
+
 .handlebar-field {
   color: $blue;
 }
 
 .button-keys {
+  font-size: 20px;
+  margin: 2px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   background-color: $gray;
-  border-color: $gray;
+  border: 3px solid rgba(255, 255, 255, .25);
 }
 
+.logo {
+  color: $purple;
+  font-size: 45px;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+  margin-right: 15px;
+}
 .navbar {
-  color: #92badd;
-  background-color: $blue;
+  color: $lightgray;
+  background-color: $darkestrgray;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: +1;
 }
+
 .main {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#pad {
+  margin-top: 54px;
+}
+
+.pad-section {
+  height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.title {
+  color: $lightgray;
+}
+
+table {
+  border-collapse: collapse;
+}
 td {
   color: transparent;
+}
+
+
+/* MODAL */
+.modal-dialog {
+    max-width: 100%;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+}
+.modal-content {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+  width: 100%;
+}
+
+.modal-header {
+  width: 1140px;
 }

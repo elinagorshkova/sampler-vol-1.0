@@ -5,8 +5,15 @@ const showCollectionsTemplate = require('../templates/helpers/collections-listin
 
 const createCollectionSuccess = function (data) {
   $('#general-message').text('Collection created')
-  document.getElementById('create-collection').reset()
+  $('.collection-name').val('')
+  formReset()
   $('#create').modal('hide')
+}
+
+const formReset = () => {
+  for (let i = 0; i < 16; i++) {
+    $('.file-upload')[i].reset()
+  }
 }
 
 const deleteCollectionSuccess = function () {
@@ -14,30 +21,23 @@ const deleteCollectionSuccess = function () {
 }
 
 const setCollectionSuccess = function (data) {
-  console.log('data is:', data)
   store.padIsReady = true
   const pad = []
   for (let i = 0; i < 16; i++) {
     pad.push(data.collection.sounds[i])
   }
   store.pad = pad
-  console.log('pad is: ', pad)
-  $('.first-row').addClass('button-keys')
-  $('.second-row').addClass('button-keys')
-  $('.third-row').addClass('button-keys')
-  $('.fourth-row').addClass('button-keys')
   $('#browse-collection').modal('hide')
   $('#start-playing').show()
   $('#general-message').text('Collection is set')
   // coloring the pad
-  $('.first-row').css('background-color', '#8860d0')
-  $('.second-row').css('background-color', '#5680e9')
-  $('.third-row').css('background-color', '#84ceeb')
-  $('.fourth-row').css('background-color', '#5ab9ea')
+  $('.first-row').css('background', 'radial-gradient(#FFBD2E, #CA7D00)')
+  $('.second-row').css('background', 'radial-gradient(#FF66AE, #B20154)')
+  $('.third-row').css('background', 'radial-gradient(#6EDEFF, #0067C9)')
+  $('.fourth-row').css('background', 'radial-gradient(#60FF69, #008A08)')
 }
 
 const showAllCollectionsSuccess = function (data) {
-  console.log('data.collections: ', data.collections)
   const showCollectionsHtml = showCollectionsTemplate({
     collections: data.collections
   })
@@ -48,7 +48,7 @@ const showAllCollectionsSuccess = function (data) {
 }
 
 const updateCollectionSuccess = function () {
-  $('#browse-collection').modal('hide')
+  $('#update').modal('hide')
   $('#general-message').text('Collection is Updated Successfully')
 }
 
