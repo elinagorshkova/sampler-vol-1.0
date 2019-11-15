@@ -14,9 +14,10 @@
   }
 }
 
+
 body {
   animation: gradientBG 15s ease infinite;
-  background: linear-gradient(-45deg, $sea, $lavender, $ice, $purple);
+  background: linear-gradient(-45deg, $darkergray, $black);
   background-size: 400% 400%;
 }
 
@@ -130,12 +131,12 @@ body {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: $purple;
   content: '';
   transition: width 0.2s;
 }
 .underlineHover:hover {
-  color: #0d0d0d;
+  color: $purple;
 }
 .underlineHover:hover:after {
   width: 100%;

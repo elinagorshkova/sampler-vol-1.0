@@ -1,3 +1,8 @@
+$primary: #f001e5;
+$fa-font-path: 'node_modules/@fortawesome/fontawesome-free/WebFonts' !default;
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/regular';
+
 @import '~bootstrap/scss/bootstrap';
 @import 'auth-form';
 @import 'theme';
@@ -8,14 +13,14 @@
   outline: none;
 }
 a {
-  color: #92badd;
+  color: $lightgray;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  // font-family: 'Poppins', sans-serif;
   height: 100vh;
 }
 
@@ -28,11 +33,15 @@ html {
 }
 
 button {
-  color: #92badd;
+  color: $lightgray;
 }
 
 button:focus {
   outline: none;
+}
+
+.button {
+  background-color: $purple;
 }
 
 
@@ -42,8 +51,21 @@ button:focus {
   white-space: nowrap;
 }
 
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.fas {
+  font-family: 'Font Awesome 5 Free';
+}
+
 .handlebar-field {
   color: $blue;
+}
+
+.header-main {
+  padding: 30px;
 }
 
 .button-keys {
@@ -57,9 +79,17 @@ button:focus {
   border-color: $gray;
 }
 
+.logo {
+  color: $purple;
+  font-size: 45px;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+  margin-right: 15px;
+}
 .navbar {
-  color: #92badd;
-  background-color: $blue;
+  color: $lightgray;
+  background-color: $darkestrgray;
   position: fixed;
   top: 0;
   width: 100%;
@@ -71,6 +101,9 @@ button:focus {
   align-items: center;
 }
 
+.title {
+  color: $lightgray;
+}
 td {
   color: transparent;
 }
