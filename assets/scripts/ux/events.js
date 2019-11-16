@@ -1,16 +1,14 @@
 'use strict'
-const ui = require('./ui') // link to UI file
 
 const addHandlers = () => {
   $(document).ready(onPageLoads)
 }
 
+// Hiding main UX element before user is signed in
 const onPageLoads = function () {
   $('.when-signed-in').hide()
-  $('#start-playing').hide()
 }
 
 module.exports = {
-  addHandlers,
-  ui
+  addHandlers
 }
