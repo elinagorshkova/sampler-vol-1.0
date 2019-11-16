@@ -3,6 +3,31 @@
 const config = require('../config')
 const store = require('../store')
 
+// RESTful Api calls:
+
+// INDEX
+const showAllCollections = function () {
+  return $.ajax({
+    url: config.apiUrl + '/collections',
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
+// SHOW
+const setCollection = function (collectionId) {
+  return $.ajax({
+    url: config.apiUrl + '/collections/' + collectionId,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
+// POST
 const createCollection = function (name, data) {
   return $.ajax({
     url: config.apiUrl + '/collections/',
@@ -19,36 +44,7 @@ const createCollection = function (name, data) {
   })
 }
 
-const deleteCollection = function (collectionId) {
-  return $.ajax({
-    url: config.apiUrl + '/collections/' + collectionId,
-    method: 'DELETE',
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
-    }
-  })
-}
-
-const setCollection = function (collectionId) {
-  return $.ajax({
-    url: config.apiUrl + '/collections/' + collectionId,
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
-    }
-  })
-}
-
-const showAllCollections = function () {
-  return $.ajax({
-    url: config.apiUrl + '/collections',
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
-    }
-  })
-}
-
+// UPDATE
 const updateCollection = function (id, name, data) {
   return $.ajax({
     url: config.apiUrl + '/collections/' + store.collectionId,
@@ -61,6 +57,17 @@ const updateCollection = function (id, name, data) {
         'name': name,
         'sounds': data
       }
+    }
+  })
+}
+
+// DELETE
+const deleteCollection = function (collectionId) {
+  return $.ajax({
+    url: config.apiUrl + '/collections/' + collectionId,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
     }
   })
 }

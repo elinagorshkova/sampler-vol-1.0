@@ -1,19 +1,11 @@
 'use strict'
 
-const store = require('../store')
-const showCollectionsTemplate = require('../templates/helpers/collections-listing.handlebars')
+const helpers = require('./helpers.js')
 
 const createCollectionSuccess = function (data) {
+  helpers.formReset()
   $('#general-message').text('Collection created')
-  $('.collection-name').val('')
-  formReset()
   $('#create').modal('hide')
-}
-
-const formReset = () => {
-  for (let i = 0; i < 16; i++) {
-    $('.file-upload')[i].reset()
-  }
 }
 
 const deleteCollectionSuccess = function () {
@@ -21,14 +13,7 @@ const deleteCollectionSuccess = function () {
 }
 
 const setCollectionSuccess = function (data) {
-  store.padIsReady = true
-  const pad = []
-  for (let i = 0; i < 16; i++) {
-    pad.push(data.collection.sounds[i])
-  }
-  store.pad = pad
-  $('#browse-collection').modal('hide')
-  $('#start-playing').show()
+  helpers.setPad(data)
   $('#general-message').text('Collection is set')
   // coloring the pad
   $('.first-row').css('background', 'radial-gradient(#FFBD2E, #CA7D00)')
@@ -38,21 +23,7 @@ const setCollectionSuccess = function (data) {
 }
 
 const showAllCollectionsSuccess = function (data) {
-  store.collections = data.collections
-  const results = store.collections.map(n => {
-    if (store.user._id.includes(n.owner)) {
-      n.editable = true
-    } else {
-      n.editable = false
-    }
-  })
-  console.log('editable?', results)
-  console.log('collections are: ', store.collections)
-  const showCollectionsHtml = showCollectionsTemplate({
-    collections: data.collections
-  })
-  store.collections = data.collections
-  $('#library').html(showCollectionsHtml)
+  helpers.populateHandlebars(data)
   $('#general-message').text('Collections are displayed')
   $('#browse-message').text('')
 }
