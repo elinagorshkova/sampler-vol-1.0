@@ -8,8 +8,10 @@
         </div>
         <!-- Buttons are shown depending on whether the collection is editable or not -->
         <a class="underlineHoverBlue chenges set-collection">Set</a>
+        {{#if collection.editable }}
         <a class="underlineHoverYellow" id="update-button">Update</a>
         <a class="underlineHoverRed changes delete-collection">Remove</a>
+        {{/if}}
       </div>
     </section>
   <hr>
