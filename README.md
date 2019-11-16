@@ -45,7 +45,7 @@ Deployed App (Front End): http://elinag.dev/sampler-vol-1.0/
 
 GitHub Repo (Front End): https://github.com/elinagorshkova/sampler-vol-1.0
 
-Deployed Back End: https://agile-ocean-62490.herokuapp.com/
+Deployed Back End: https://guarded-ocean-51232.herokuapp.com
 
 GitHub Repo (Back End): https://github.com/elinagorshkova/sampler-api-client
 
