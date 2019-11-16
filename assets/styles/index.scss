@@ -10,9 +10,12 @@ $fa-font-path: 'node_modules/@fortawesome/fontawesome-free/WebFonts' !default;
 @import 'animate';
 @import 'sidebar';
 
+/* GENERAL STYLES */
+
 *:focus {
   outline: none;
 }
+
 a {
   display:inline-block;
   text-decoration: none;
@@ -26,10 +29,14 @@ body {
 
 body,
 html {
-  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+.button {
+  background-color: $purple;
 }
 
 button {
@@ -38,39 +45,6 @@ button {
 
 button:focus {
   outline: none;
-}
-
-.button {
-  background-color: $purple;
-}
-
-
-#content {
-  width: 30em;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.container-menu {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    max-width: 1140px;
-    width: 100%;
-    padding: 15px;
-    margin: auto;
-}
-
-.fas {
-  font-family: 'Font Awesome 5 Free';
-}
-
-.handlebar-field {
-  color: $blue;
 }
 
 .button-keys {
@@ -87,6 +61,34 @@ button:focus {
   border: 3px solid rgba(255, 255, 255, .25);
 }
 
+.container-menu {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    max-width: 1140px;
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+}
+
+#content {
+  width: 30em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.fas {
+  font-family: 'Font Awesome 5 Free';
+}
+
+.handlebar-field {
+  color: $blue;
+}
+
 .logo {
   color: $purple;
   font-size: 45px;
@@ -95,6 +97,14 @@ button:focus {
   animation-iteration-count: infinite;
   margin-right: 15px;
 }
+
+.main {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbar {
   color: $lightgray;
   background-color: $darkestrgray;
@@ -102,13 +112,6 @@ button:focus {
   top: 0;
   width: 100%;
   z-index: +1;
-}
-
-.main {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #pad {
@@ -141,12 +144,14 @@ button:focus {
 table {
   border-collapse: collapse;
 }
+
 td {
   color: transparent;
 }
 
 
-/* MODAL */
+/* MODALS */
+
 .modal-dialog {
     max-width: 100%;
     margin: 0;
