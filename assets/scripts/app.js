@@ -13,6 +13,7 @@ $(() => {
   initializeStore()
 })
 
+// Creating an empty array for sounds in the store to populate it later
 const initializeStore = function () {
   store.sounds = []
 }
