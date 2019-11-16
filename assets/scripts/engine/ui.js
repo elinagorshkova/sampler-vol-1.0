@@ -38,6 +38,16 @@ const setCollectionSuccess = function (data) {
 }
 
 const showAllCollectionsSuccess = function (data) {
+  store.collections = data.collections
+  const results = store.collections.map(n => {
+    if (store.user._id.includes(n.owner)) {
+      n.editable = true
+    } else {
+      n.editable = false
+    }
+  })
+  console.log('editable?', results)
+  console.log('collections are: ', store.collections)
   const showCollectionsHtml = showCollectionsTemplate({
     collections: data.collections
   })
